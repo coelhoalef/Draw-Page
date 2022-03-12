@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="loteria.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,100;1,300&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
+    <title>Pagina de sorteio</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Página de Sorteio</h1>
+      <!--Números-->
+      <p>Digite um número:</p>
+      <input class="input" type="number" name="number" id="inputNumber" />
+      <input class="btn" type="button" onclick="drawNumber()" value="Sortear Números" />
+      <p>O resultado do sorteio de números é:</p>
+      <div class="resultContainer">
+          <div class="result" id="resultNumber">-</div>
+      </div>
+
+    <hr>
+      <!--Nomes-->
+      <p>Digite os nomes:</p>
+      <input class="input" type="text" name="text" id="inputName" />
+      <input class="btn" type="button" onclick="uploadArray()" value="Inserir Nome" />
+      <input class="btn" type="button" onclick="drawName()" value="Sortear Nome" /> <br />
+      <p>O resultado do sorteio de nomes é:</p>
+      <div class="resultContainer">
+          <div class="result" id="resultName">-</div>
+      </div>
+      <br />
+      <input class="btn btnC" type="button" onclick="cleanup()" value="Limpar resultado" />
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
