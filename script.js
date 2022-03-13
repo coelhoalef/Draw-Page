@@ -14,11 +14,23 @@ function drawNumber(){
 //Sorteio nomes
 let inputName = document.getElementById("inputName");
 let arrayNames = [];
+let list = document.getElementById("container2")
+
+loadTask();
 
 function uploadArray(){
     arrayNames.push(inputName.value);
-    console.log(arrayNames)
     document.getElementById("inputName").value = "";
+    localStorage.setItem("arrayNames", JSON.stringify(arrayNames));
+    updateScreen();
+}
+
+function updateScreen() {
+    list.innerHTML = ""
+    arrayNames.forEach(task => {
+        list.innerHTML += `<li>${task}<button class="btnDelete" onclick="deleteTask(this,'${task}')"><p class="delete">X</p></button></li>`
+    })
+    
 }
 
 function drawName(){
@@ -31,11 +43,22 @@ function drawName(){
     
 }
 
-//Limpar resultados para
+//Limpar resultados 
 
 function cleanup(){
     document.getElementById("resultNumber").innerHTML = "-";
     document.getElementById("resultName").innerHTML = "-";
     document.getElementById("inputNumber").value = "";
     location.reload();
+}
+
+function deleteTask(element, task) {
+    arrayNames = arrayNames.filter(value => value != task)
+    localStorage.setItem("arrayNames", JSON.stringify(arrayNames));
+    updateScreen();
+}
+
+function loadTask() {
+    arrayNames = JSON.parse(localStorage.getItem('arrayNames')) || []
+    updateScreen();
 }
